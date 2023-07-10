@@ -15,10 +15,6 @@ data class LoginPageText(val title: String, val body: String, val body2: String)
 data class LanguageText (val title: String,val showText:String, val langCode: String)
 data class TextWithAction (val title: String,val url: String)
 
-
-//Top bar
-data class DropDownMenuText (val title: String,val showText:String)
-
 //Settings Screen
 data class ListContent(val title: String, val subtitle: List<String>)
 

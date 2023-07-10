@@ -70,6 +70,7 @@ class LoginScreenViewModel(context: Context): ViewModel() {
         return (userName == "1234")
     }
 
+    //ToDO
     fun validUser(context: Context,vailUserName: Boolean, vailPassword:Boolean){
         if (!vailUserName || !vailPassword) {
             Toast.makeText(

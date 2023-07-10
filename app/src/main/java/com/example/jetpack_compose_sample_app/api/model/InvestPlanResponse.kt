@@ -1,7 +1,6 @@
 package com.example.jetpack_compose_sample_app.api.model
 
 import com.google.gson.annotations.SerializedName
-import org.json.JSONObject
 
 data class ApiInvestPlanResponse(
     @SerializedName("status") val status: StatusResponse,

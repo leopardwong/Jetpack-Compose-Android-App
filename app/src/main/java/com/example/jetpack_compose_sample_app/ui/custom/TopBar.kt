@@ -1,8 +1,6 @@
 package com.example.jetpack_compose_sample_app.ui.custom
 
 import android.app.Activity
-import android.app.LocalActivityManager
-import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
@@ -12,20 +10,15 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.content.ContextCompat.startActivity
-import androidx.navigation.NavHostController
 import com.example.jetpack_compose_sample_app.R
 import com.example.jetpack_compose_sample_app.Utils
 import com.example.jetpack_compose_sample_app.activity.MainScreenActivity
-import com.example.jetpack_compose_sample_app.ui.datamodel.DropDownMenuText
 import com.example.jetpack_compose_sample_app.ui.datamodel.LanguageText
-import com.google.android.material.internal.ContextUtils.getActivity
 
 
 @Composable
