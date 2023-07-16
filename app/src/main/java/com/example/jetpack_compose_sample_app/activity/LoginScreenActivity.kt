@@ -18,24 +18,8 @@ class LoginScreenActivity: AppCompatActivity() {
 
         updateLocale(this)
 
-
         setContent {
-            LoginPageBody(
-                context = this,
-                loginState = { result ->
-                    if(result){
-                        val intent = Intent(applicationContext, MainScreenActivity::class.java)
-                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        applicationContext.startActivity(intent)
-                        SharedPreferenceHelper(this).save("isLoggedIn",true)
-                        finish()
-                    }else{
-                        Toast.makeText(applicationContext, "Call api False",
-                            Toast.LENGTH_SHORT)
-                            .show()
-                    }
-                }
-            )
+            LoginPageBody(context = this)
         }
     }
 

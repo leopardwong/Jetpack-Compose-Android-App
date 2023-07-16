@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -89,4 +90,8 @@ dependencies {
     api 'androidx.biometric:biometric-ktx:1.2.0-alpha04'
 
     api "commons-io:commons-io:2.5"
+
+    //firebase
+    implementation platform("com.google.firebase:firebase-bom:32.1.1")
+    implementation"com.google.firebase:firebase-analytics-ktx"
 }

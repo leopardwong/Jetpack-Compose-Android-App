@@ -17,6 +17,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.jetpack_compose_sample_app.R
 import com.example.jetpack_compose_sample_app.Utils.saveLocale
+import com.example.jetpack_compose_sample_app.helper.LoginHelper.navigateToHome
+import com.example.jetpack_compose_sample_app.helper.LoginHelper.validPassword
+import com.example.jetpack_compose_sample_app.helper.LoginHelper.validUserName
 import com.example.jetpack_compose_sample_app.ui.datamodel.LoginPageText
 import com.example.jetpack_compose_sample_app.ui.datamodel.Password
 import com.example.jetpack_compose_sample_app.ui.datamodel.UserName
@@ -26,13 +29,12 @@ import com.example.jetpack_compose_sample_app.ui.viewmodel.LoginScreenViewModel
 val contextSize = 12.sp
 
 @Composable
-fun LoginPageBody(context:Context,
-                  loginState: (Boolean) -> Unit) {
+fun LoginPageBody(context:Context) {
     val loginScreenViewModel = LoginScreenViewModel(context)
     val userNameState = remember { mutableStateOf(TextFieldValue()) }
     val passwordState = remember { mutableStateOf(TextFieldValue()) }
-    var vailUserNameInput by remember { mutableStateOf(false) }
-    var vailPasswordInput by remember { mutableStateOf(false) }
+//    var vailUserNameInput by remember { mutableStateOf(false) }
+//    var vailPasswordInput by remember { mutableStateOf(false) }
     var dropDownMenuExpanded by remember {
         mutableStateOf(false)
     }
@@ -85,31 +87,15 @@ fun LoginPageBody(context:Context,
                 password = loginScreenViewModel.passwordTextField,
                 userNameState = userNameState,
                 passwordState = passwordState,
-                userInputError = vailUserNameInput,
-                passwordInputError = vailPasswordInput)
+//                userInputError = vailUserNameInput,
+//                passwordInputError = vailPasswordInput
+            )
 
             LoginButtonColumn(
                 context = context,
                 userName = userNameState.value.text,
                 password = passwordState.value.text,
                 loginScreenViewModel = loginScreenViewModel,
-                //Todo move to viewModel
-                validate = { vailUserName, vailPassword ->
-                    vailUserNameInput = !vailUserName
-                    vailPasswordInput = !vailPassword
-                    if (!vailUserName || !vailPassword) {
-                        Toast.makeText(
-                            context,
-                            "UserName or Password is incorrect",
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
-                    } else {
-                        loginScreenViewModel.loadAPI {
-                            loginState(it)
-                        }
-                    }
-                }
             )
 
             Line()
@@ -141,8 +127,9 @@ fun InputColumn(userName: UserName,
                 password: Password,
                 userNameState: MutableState<TextFieldValue>,
                 passwordState: MutableState<TextFieldValue>,
-                userInputError:Boolean = false,
-                passwordInputError:Boolean = false){
+//                userInputError:Boolean = false,
+//                passwordInputError:Boolean = false
+){
     Column(verticalArrangement = Arrangement.spacedBy(space = 20.dp)) {
         //input field
         Text(text = userName.title,
@@ -150,15 +137,16 @@ fun InputColumn(userName: UserName,
         CustomTextField(userName.textField,
             isPassword = false,
             textState = userNameState,
-            inputError = userInputError)
+//            inputError = userInputError
+        )
         
         Text(text = password.title,
             fontSize = contextSize)
         CustomTextField(password.textField,
             isPassword = true,
             textState = passwordState,
-            inputError = passwordInputError)
-
+//            inputError = passwordInputError
+        )
     }
 }
 
@@ -167,8 +155,7 @@ fun LoginButtonColumn(
     context: Context,
     userName: String,
     password: String,
-    loginScreenViewModel: LoginScreenViewModel,
-    validate: (vailUserName: Boolean, vailPassword: Boolean) -> Unit
+    loginScreenViewModel: LoginScreenViewModel
 ){
     Column(
         verticalArrangement = Arrangement.spacedBy(20.dp)
@@ -178,9 +165,15 @@ fun LoginButtonColumn(
             color = ButtonDefaults.buttonColors(backgroundColor = Color.LightGray),
             borderColor = Color.Transparent,
             onValidate = {
-                val vailUserName = loginScreenViewModel.validUserName(userName)
-                val vailPassword = loginScreenViewModel.validPassword(password)
-                validate(vailUserName,vailPassword)
+                val vailUserName = validUserName(userName)
+                val vailPassword = validPassword(password)
+                if(vailUserName && vailPassword){
+                    loginScreenViewModel.loadAPI{navigateToHome(it,context)}
+                }else{
+                    Toast.makeText(context, "password or username is wrong",
+                        Toast.LENGTH_SHORT)
+                        .show()
+                }
             })
 
         CustomTextButton(context.getString(R.string.biometric_sign_in),

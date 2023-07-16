@@ -6,16 +6,17 @@ import com.example.jetpack_compose_sample_app.R
 import com.example.jetpack_compose_sample_app.api.model.ApiInvestPlanResponse
 import com.example.jetpack_compose_sample_app.api.model.ApiInvestSummaryResponse
 import com.example.jetpack_compose_sample_app.api.model.ApiLoginResponse
+import com.example.jetpack_compose_sample_app.helper.ApiHelper
 import com.example.jetpack_compose_sample_app.helper.FileStorageHelper
 import com.example.jetpack_compose_sample_app.ui.datamodel.*
 import com.example.jetpack_compose_sample_app.ui.showWebView
 import com.google.gson.Gson
 
 class HomeScreenViewModel(context: Context):ViewModel() {
-    val fileStorageHelper = FileStorageHelper(context)
-    val loginData = Gson().fromJson(fileStorageHelper.getData("LoginData"),ApiLoginResponse::class.java)
-    val investPlanData = Gson().fromJson(fileStorageHelper.getData("InvestPlanData"),ApiInvestPlanResponse::class.java)
-    val investSummaryData = Gson().fromJson(fileStorageHelper.getData("InvestSummaryData"),ApiInvestSummaryResponse::class.java)
+    val apiHelper = ApiHelper(context)
+    val loginData = apiHelper.geLoginData()!!
+    val investPlanData = apiHelper.geInvestPlanData()!!
+    val investSummaryData = apiHelper.geInvestSummaryData()!!
 
     val mpfPlan = investPlanData.data.plan[0]
     val investPlan = investPlanData.data.plan[1]

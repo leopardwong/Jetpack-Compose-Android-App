@@ -11,6 +11,7 @@ import com.example.jetpack_compose_sample_app.activity.MainScreenActivity
 import com.example.jetpack_compose_sample_app.api.repository.ApiRepository.getInvestPlanData
 import com.example.jetpack_compose_sample_app.api.repository.ApiRepository.getInvestSummaryData
 import com.example.jetpack_compose_sample_app.api.repository.ApiRepository.getLoginData
+import com.example.jetpack_compose_sample_app.helper.ApiHelper
 import com.example.jetpack_compose_sample_app.helper.FileStorageHelper
 
 import com.example.jetpack_compose_sample_app.helper.SharedPreferenceHelper
@@ -57,50 +58,7 @@ class LoginScreenViewModel(context: Context): ViewModel() {
 
     val version = context.getString(R.string.version_number)
 
-
-    fun validate(userName: String, password: String):Boolean{
-        return (userName == "123456789" && password == "123456789")
-    }
-    //TODO firebase implementation
-    fun validPassword(password: String):Boolean{
-        return ( password == "1234")
-    }
-
-    fun validUserName(userName: String):Boolean{
-        return (userName == "1234")
-    }
-
-    //ToDO
-    fun validUser(context: Context,vailUserName: Boolean, vailPassword:Boolean){
-        if (!vailUserName || !vailPassword) {
-            Toast.makeText(
-                context,
-                "UserName or Password is incorrect",
-                Toast.LENGTH_SHORT
-            )
-                .show()
-        } else {
-            loadAPI {
-                loginState(it,context)
-            }
-        }
-
-    }
-    fun loginState(result: Boolean,context: Context){
-        if(result){
-            val intent = Intent(context, MainScreenActivity::class.java)
-                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            context.startActivity(intent)
-            SharedPreferenceHelper(context).save("isLoggedIn",true)
-        }else{
-            Toast.makeText(context, "Call api False",
-                Toast.LENGTH_SHORT)
-                .show()
-        }
-    }
-
-
-    fun loadAPI(completed: (Boolean) -> Unit){
+    fun loadAPI(completed:(Boolean)->Unit){
         viewModelScope.launch {
             getLoginData()
                 .filterNot { it.isLoading }
