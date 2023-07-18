@@ -15,6 +15,7 @@
     <string name="password">Password</string>
     <string name="username_input">Username</string>
     <string name="password_input">Password</string>
+    <string name="password_input_hit">Password must be at least 7 characters</string>
     <string name="login_message_body1">Enter the same information to link different platforms:</string>
     <string name="login_message_body2">Customer Website and XX Hong Kong Mobile App</string>
     <string name="english">English</string>
@@ -33,7 +34,7 @@
     <string name="contact_information">Contact Information</string>
     <string name="featured_insights">Featured Insights</string>
     <string name="quick_links">Quick Links</string>
-    <string name="intro_text">Here\'s my practice app for Jetpack Compose</string>
+    <string name="intro_text">Here\'s template app for Jetpack Compose</string>
     <string name="sample_text_1">We Work With Clients, People &amp; Communities Across The Globe To Make A World Of Difference. We Deliver On The Promise Of Technology &amp; Human Ingenuity To Make Change Work For You. Types: Cloud, Sustainability, Security, Responsible Business, Supply Chain.</string>
     <string name="learn_more_text_1">Limited promotional offer</string>
     <string name="learn_more_text_2">La Vie 2 - Plan features</string>

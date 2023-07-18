@@ -1,13 +1,10 @@
 package com.example.jetpack_compose_sample_app.activity
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import com.example.jetpack_compose_sample_app.Utils.updateLocale
-import com.example.jetpack_compose_sample_app.helper.SharedPreferenceHelper
-import com.example.jetpack_compose_sample_app.ui.LoginPageBody
+import com.example.jetpack_compose_sample_app.ui.LoginScreen
 
 
 class LoginScreenActivity: AppCompatActivity() {
@@ -19,7 +16,7 @@ class LoginScreenActivity: AppCompatActivity() {
         updateLocale(this)
 
         setContent {
-            LoginPageBody(context = this)
+            LoginScreen(context = this)
         }
     }
 

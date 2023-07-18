@@ -1,6 +1,7 @@
 package com.example.jetpack_compose_sample_app.ui
 
 import android.content.Context
+import android.content.Intent
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -17,9 +18,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.jetpack_compose_sample_app.R
 import com.example.jetpack_compose_sample_app.Utils.saveLocale
-import com.example.jetpack_compose_sample_app.helper.LoginHelper.navigateToHome
-import com.example.jetpack_compose_sample_app.helper.LoginHelper.validPassword
-import com.example.jetpack_compose_sample_app.helper.LoginHelper.validUserName
+import com.example.jetpack_compose_sample_app.activity.RegisterScreenActivity
+import com.example.jetpack_compose_sample_app.helper.LoginHelper.login
 import com.example.jetpack_compose_sample_app.ui.datamodel.LoginPageText
 import com.example.jetpack_compose_sample_app.ui.datamodel.Password
 import com.example.jetpack_compose_sample_app.ui.datamodel.UserName
@@ -29,7 +29,7 @@ import com.example.jetpack_compose_sample_app.ui.viewmodel.LoginScreenViewModel
 val contextSize = 12.sp
 
 @Composable
-fun LoginPageBody(context:Context) {
+fun LoginScreen(context:Context) {
     val loginScreenViewModel = LoginScreenViewModel(context)
     val userNameState = remember { mutableStateOf(TextFieldValue()) }
     val passwordState = remember { mutableStateOf(TextFieldValue()) }
@@ -82,7 +82,6 @@ fun LoginPageBody(context:Context) {
         ) {
 
             MsgColumn(context,loginScreenViewModel.loginMessage)
-            Text(text = "Username = 1234 , Password = 1234", fontSize = 18.sp)
             InputColumn(userName = loginScreenViewModel.userTextField,
                 password = loginScreenViewModel.passwordTextField,
                 userNameState = userNameState,
@@ -132,9 +131,9 @@ fun InputColumn(userName: UserName,
 ){
     Column(verticalArrangement = Arrangement.spacedBy(space = 20.dp)) {
         //input field
-        Text(text = userName.title,
+        Text(text = "Email address",
             fontSize = contextSize)
-        CustomTextField(userName.textField,
+        CustomTextField("Email address",
             isPassword = false,
             textState = userNameState,
 //            inputError = userInputError
@@ -164,15 +163,10 @@ fun LoginButtonColumn(
             text = context.getString(R.string.login),
             color = ButtonDefaults.buttonColors(backgroundColor = Color.LightGray),
             borderColor = Color.Transparent,
-            onValidate = {
-                val vailUserName = validUserName(userName)
-                val vailPassword = validPassword(password)
-                if(vailUserName && vailPassword){
-                    loginScreenViewModel.loadAPI{navigateToHome(it,context)}
-                }else{
-                    Toast.makeText(context, "password or username is wrong",
-                        Toast.LENGTH_SHORT)
-                        .show()
+            onClickEvent = {
+                //TODO change logic: should call api after will login success
+                loginScreenViewModel.loadAPI{
+                    login(context,userName,password,it)
                 }
             })
 
@@ -198,16 +192,24 @@ fun RegisterButtonColumn(context: Context){
         verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
 
-        CustomTextButton(context.getString(R.string.register_account_with),
-            ButtonDefaults.outlinedButtonColors(
-                contentColor = Color.Transparent),
-                borderColor = Color.Red,
-                onClickEvent = {})
         CustomTextButton(context.getString(R.string.register_account),
             ButtonDefaults.outlinedButtonColors(
                 contentColor = Color.Transparent),
                 borderColor = Color.Red,
-                onClickEvent = {})
+                onClickEvent = {
+                    val intent = Intent(context, RegisterScreenActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    context.startActivity(intent)
+                })
+        CustomTextButton(context.getString(R.string.register_account_with),
+            ButtonDefaults.outlinedButtonColors(
+                contentColor = Color.Transparent),
+                borderColor = Color.Red,
+                onClickEvent = {
+                    Toast.makeText(context, "social sign in not yet ready to use",
+                        Toast.LENGTH_SHORT)
+                        .show()
+                })
 
     }
 }

@@ -7,9 +7,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.example.jetpack_compose_sample_app.MainActivity
+import com.example.jetpack_compose_sample_app.activity.MainActivity
 import com.example.jetpack_compose_sample_app.helper.SharedPreferenceHelper
 import com.example.jetpack_compose_sample_app.ui.screen.HomeScreen
+import com.example.jetpack_compose_sample_app.ui.screen.RegisterScreen
 import com.example.jetpack_compose_sample_app.ui.viewmodel.MainScreenViewModel
 
 @Composable
@@ -35,6 +36,26 @@ fun NavigationGraph(navController: NavHostController,context: Context,mainScreen
                     }
                 }
             }
+        }
+    }
+}
+
+//TODO
+@Composable
+fun LoginNavigationGraph(navController: NavHostController, context: Context) {
+    NavHost(
+        navController = navController,
+        startDestination = "login"
+    ) {
+        composable(
+            route = "login"
+        ) {
+
+        }
+        composable(
+            route = "register"
+        ) {
+
         }
     }
 }

@@ -15,6 +15,7 @@
     <string name="password">密碼</string>
     <string name="username_input">輸入用戶名稱</string>
     <string name="password_input">輸入密碼</string>
+    <string name="password_input_hit">密碼必須至少 7 個字符</string>
     <string name="login_message_body1">輸入相同資料，連結不同平台：</string>
     <string name="login_message_body2">客戶網站及XX香港流動應用程式</string>
     <string name="english">英文</string>
@@ -33,7 +34,7 @@
     <string name="contact_information">聯繫信息</string>
     <string name="featured_insights">特色見解</string>
     <string name="quick_links">快速鏈接</string>
-    <string name="intro_text">這是我的 Jetpack Compose 練習應用程序</string>
+    <string name="intro_text">這是 Jetpack Compose 應用程序示例</string>
     <string name="sample_text_1">我們與全球的客戶、人員和社區合作，創造一個與眾不同的世界。 我們兌現技術和人類智慧的承諾，讓變革為您所用。 類型：雲、可持續性、安全性、負責任的企業、供應鏈。</string>
     <string name="learn_more_text_1">Limited promotional offer</string>
     <string name="learn_more_text_2">La Vie 2 - Plan features</string>

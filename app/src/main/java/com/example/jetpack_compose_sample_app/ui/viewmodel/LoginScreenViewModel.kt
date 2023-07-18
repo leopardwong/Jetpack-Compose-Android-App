@@ -2,19 +2,14 @@ package com.example.jetpack_compose_sample_app.ui.viewmodel
 
 
 import android.content.Context
-import android.content.Intent
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.jetpack_compose_sample_app.R
-import com.example.jetpack_compose_sample_app.activity.MainScreenActivity
 import com.example.jetpack_compose_sample_app.api.repository.ApiRepository.getInvestPlanData
 import com.example.jetpack_compose_sample_app.api.repository.ApiRepository.getInvestSummaryData
 import com.example.jetpack_compose_sample_app.api.repository.ApiRepository.getLoginData
-import com.example.jetpack_compose_sample_app.helper.ApiHelper
 import com.example.jetpack_compose_sample_app.helper.FileStorageHelper
 
-import com.example.jetpack_compose_sample_app.helper.SharedPreferenceHelper
 import com.example.jetpack_compose_sample_app.ui.datamodel.*
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.flow.*

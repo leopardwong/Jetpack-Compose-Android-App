@@ -1,12 +1,12 @@
-package com.example.jetpack_compose_sample_app
+package com.example.jetpack_compose_sample_app.activity
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import com.example.jetpack_compose_sample_app.activity.LoginScreenActivity
-import com.example.jetpack_compose_sample_app.activity.MainScreenActivity
+import androidx.activity.compose.setContent
 import com.example.jetpack_compose_sample_app.helper.SharedPreferenceHelper
+
 
 
 class MainActivity : ComponentActivity() {
@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         appContext = applicationContext
 
-
+//        setContent { SignUpPage(this) }
         val isLoggedIn = SharedPreferenceHelper(this).getValueBoolean("isLoggedIn",false)
 
         if(isLoggedIn){

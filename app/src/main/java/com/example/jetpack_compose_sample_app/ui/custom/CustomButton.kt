@@ -29,9 +29,9 @@ fun CustomTextButton(text:String, color: ButtonColors, borderColor: Color, onCli
 }
 
 @Composable
-fun LoginButton(text:String, color: ButtonColors, borderColor: Color, onValidate: () -> Unit){
+fun LoginButton(text:String, color: ButtonColors, borderColor: Color, onClickEvent: () -> Unit){
     Button(
-        onClick = onValidate,
+        onClick = onClickEvent,
         colors = color,
         modifier = Modifier.fillMaxWidth(),//.padding(0.dp,30.dp),
         shape = RectangleShape,

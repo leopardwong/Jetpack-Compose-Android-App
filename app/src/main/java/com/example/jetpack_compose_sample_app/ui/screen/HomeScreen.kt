@@ -101,7 +101,7 @@ fun ProfileText(context: Context,homeScreenViewModel: HomeScreenViewModel){
                     fontSize = 18.sp,
                     fontWeight = Normal,
                     color = Color.White)
-                Text(text = "${context.getString(R.string.email)} ${homeScreenViewModel.profileContent.email}",
+                Text(text = "${context.getString(R.string.username)} ${homeScreenViewModel.profileContent.email}",
                     fontSize = 18.sp,
                     fontWeight = Normal,
                     color = Color.White)

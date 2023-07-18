@@ -47,10 +47,10 @@ fun MainScreenView(context: Context){
                     "for_you" -> title = context.getString(R.string.for_you)
                     "setting" -> title = context.getString(R.string.setting)
                 }
-                when(currentRoute){
-                    "login" -> barState.value = false
-                    else -> barState.value = true
-                }
+//                when(currentRoute){
+//                    "login" -> barState.value = false
+//                    else -> barState.value = true
+//                }
             }
         }
     }
