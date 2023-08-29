@@ -35,4 +35,5 @@ The project includes examples of using Jetpack Compose and Coroutines together, 
 - [Coroutines](https://developer.android.com/kotlin/coroutines?gclid=Cj0KCQjwtamlBhD3ARIsAARoaExuplpiIo3pZO5XXUJBL99ZYrYuBvVdzL1HzaHw6rB7eUVZznBwYqEaAs8SEALw_wcB&gclsrc=aw.ds)
 
 ## TODO
+- Code Style Refactor
 - Implement Biometrics and Social media Sign In
