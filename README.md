@@ -6,23 +6,18 @@ This is a collection of sample code for Jetpack Compose, a modern toolkit for bu
 
 Here are some screenshots of the app in action:
 
-<img src="https://github.com/leopardwong/Jetpack-Compose-Android-App/assets/88359614/4101b409-560f-4a5b-922b-6a3ab722cd2a" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" />
-<img src="https://github.com/leopardwong/Jetpack-Compose-Android-App/assets/88359614/ac8a7ef7-6e09-43ed-b72e-fcdaca30c675" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" />
-
-
-
 ### English Version:
 <div style="display: flex; justify-content: center;">
   <!-- Adjust the width attribute as needed to control the size -->
-  <img src="img.png" alt="App Screenshot" width="300" style="margin-right: 10px;" />
-  <img src="img_3.png" alt="App Screenshot" width="300" />
+  <img src="img_3.png" alt="App Screenshot" width="300" style="margin-right: 10px;" />
+  <img src="img.png" alt="App Screenshot" width="300" />
 </div>
 
 ### Traditional Chinese Version:
 <div style="display: flex; justify-content: center;">
   <!-- Adjust the width attribute as needed to control the size -->
-  <img src="img_1.png" alt="App Screenshot" width="300" style="margin-right: 10px;" />
-  <img src="img_2.png" alt="App Screenshot" width="300" />
+  <img src="img_2.png" alt="App Screenshot" width="300" style="margin-right: 10px;" />
+  <img src="img_1.png" alt="App Screenshot" width="300" />
 </div>
 
 ## Getting Started
