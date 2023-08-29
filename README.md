@@ -10,11 +10,26 @@ Here are some screenshots of the app in action:
 <img src="https://github.com/leopardwong/Jetpack-Compose-Android-App/assets/88359614/ac8a7ef7-6e09-43ed-b72e-fcdaca30c675" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" />
 
 
+
+### English Version:
+<div style="display: flex; justify-content: center;">
+  <!-- Adjust the width attribute as needed to control the size -->
+  <img src="img.png" alt="App Screenshot" width="300" style="margin-right: 10px;" />
+  <img src="img_3.png" alt="App Screenshot" width="300" />
+</div>
+
+### Traditional Chinese Version:
+<div style="display: flex; justify-content: center;">
+  <!-- Adjust the width attribute as needed to control the size -->
+  <img src="img_1.png" alt="App Screenshot" width="300" style="margin-right: 10px;" />
+  <img src="img_2.png" alt="App Screenshot" width="300" />
+</div>
+
 ## Getting Started
 
 To use this project, you can either clone the repository or download the source code as a ZIP file. Once you have the code, you can open it in Android Studio and run the examples on an emulator or physical device.
 
-## Examples
+## ExamplesF
 
 The project includes examples of using Jetpack Compose and Coroutines together, including:
 
