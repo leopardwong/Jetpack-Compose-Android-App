@@ -44,10 +44,17 @@ The project includes examples of using Jetpack Compose and Coroutines together, 
 ## TODO
 Here are the upcoming enhancements planned for the project:
 
+#### UIUX Improvement:
+- User Onboarding Experience: Create a guided onboarding process for new users to enhance engagement.
+- Responsive Design Enhancements: Ensure all pages are fully responsive and optimized for various screen sizes.
+- Error Handling: Implement robust error handling and provide clear feedback for sign-in attempts.
+
 #### Code Style Refactor:
-Improve code structure and formatting for better maintainability.
-#### Implement Biometrics and Social Media Sign In:
-Integrate biometric authentication and social media sign-in features.
+- Modular Code Structure: Break down large components into smaller, reusable modules.
+- Consistent Naming Conventions: Standardize naming conventions across the codebase for clarity.
+- Linting and Formatting Tools: Set up tools like ESLint and Prettier to enforce coding standards automatically.
 
-
-## License
+#### User Engagement Features:
+- Push Notifications: Implement push notifications for important updates and user engagement.
+- Feedback Mechanism: Create a system for users to provide feedback on features and report issues.
+- User Profile Management: Allow users to manage their social media accounts and biometrics from a profile settings page.
